@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AURORA IA — Laboratório Security by Design para LLMs</title>
+<meta name="description" content="Sistema do Laboratório AURORA IA: do risco à evidência. Atividades práticas de segurança em LLMs baseadas em NIST AI RMF, SP 800-218A, OWASP GenAI e MITRE ATLAS." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<!-- ====================== SIDEBAR ====================== -->
+<aside class="sidebar" id="sidebar">
+  <div class="brand">
+    <div class="brand-logo" aria-hidden="true">
+      <span class="brand-dot d1"></span>
+      <span class="brand-dot d2"></span>
+      <span class="brand-dot d3"></span>
+      <span class="brand-dot d4"></span>
+    </div>
+    <div class="brand-text">
+      <strong>AURORA IA</strong>
+      <small>do risco à evidência</small>
+    </div>
+  </div>
+
+  <nav class="nav" aria-label="Navegação principal">
+    <a href="#visao" class="nav-link active" data-nav>Visão geral</a>
+    <a href="#metodo" class="nav-link" data-nav>Método R-C-R-E</a>
+    <p class="nav-group">Laboratórios</p>
+    <a href="#lab01" class="nav-link" data-nav><span class="pill p-lab01">LAB&nbsp;01</span> Ameaças mapeadas</a>
+    <a href="#lab02" class="nav-link" data-nav><span class="pill p-lab02">LAB&nbsp;02</span> Controles &amp; evidências</a>
+    <a href="#lab03" class="nav-link" data-nav><span class="pill p-lab03">LAB&nbsp;03</span> Testar e decidir</a>
+    <p class="nav-group">Apoio</p>
+    <a href="#referenciais" class="nav-link" data-nav>Referenciais</a>
+    <a href="#insumos" class="nav-link" data-nav>Insumos &amp; links</a>
+  </nav>
+
+  <div class="sidebar-foot">
+    <button class="btn btn-primary btn-block" id="btnPdf" type="button">
+      <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M12 16l-5-5 1.4-1.4L11 12.2V4h2v8.2l2.6-2.6L17 11l-5 5zm-7 2h14v2H5v-2z"/></svg>
+      Gerar PDF
+    </button>
+    <p class="foot-note">CISSA · CESAR · Security by Design</p>
+  </div>
+</aside>
+
+<button class="menu-toggle" id="menuToggle" type="button" aria-label="Abrir menu">☰</button>
+
+<!-- ====================== CONTEÚDO ====================== -->
+<main class="content" id="content">
+
+  <!-- HERO -->
+  <section class="hero" id="visao">
+    <div class="hero-head">
+      <span class="eyebrow">Laboratório · Security by Design para LLMs</span>
+      <h1>Aurora IA — <span class="grad">do risco à evidência</span></h1>
+      <p class="lede">
+        Um percurso prático em três laboratórios que transforma cenários de ameaça em
+        decisões de segurança <strong>verificáveis</strong>. Cada atividade conecta
+        <em>risco</em>, <em>controle</em>, <em>responsável</em> e <em>evidência</em>,
+        apoiada em NIST AI RMF, NIST SP 800-218A, OWASP GenAI e MITRE ATLAS.
+      </p>
+    </div>
+
+    <div class="flow">
+      <article class="flow-card c-lab01">
+        <span class="pill p-lab01">LAB 01</span>
+        <h3>Ameaças mapeadas</h3>
+        <p>Identificar o que pode acontecer e quais ativos/impactos estão envolvidos.</p>
+      </article>
+      <article class="flow-card c-lab02">
+        <span class="pill p-lab02">LAB 02</span>
+        <h3>Controles + responsáveis + evidências</h3>
+        <p>Reduzir probabilidade e impacto, com dono claro e prova de que o controle funciona.</p>
+      </article>
+      <article class="flow-card c-lab03">
+        <span class="pill p-lab03">LAB 03</span>
+        <h3>Testar e decidir</h3>
+        <p>Validar os controles sob ataque e decidir: aceitar, tratar ou escalar o risco.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- MÉTODO -->
+  <section class="block" id="metodo">
+    <header class="block-head">
+      <h2>Método R-C-R-E</h2>
+      <p>A espinha dorsal de todas as atividades: toda ameaça percorre quatro estações.</p>
+    </header>
+
+    <div class="rcre">
+      <div class="rcre-step s-risco">
+        <h4>RISCO</h4>
+        <p>O que pode acontecer? Qual ativo/impacto está envolvido?</p>
+      </div>
+      <span class="rcre-arrow" aria-hidden="true">→</span>
+      <div class="rcre-step s-controle">
+        <h4>CONTROLE</h4>
+        <p>O que reduz a probabilidade ou o impacto desse risco?</p>
+      </div>
+      <span class="rcre-arrow" aria-hidden="true">→</span>
+      <div class="rcre-step s-responsavel">
+        <h4>RESPONSÁVEL</h4>
+        <p>Quem executa, responde, consulta e precisa saber?</p>
+      </div>
+      <span class="rcre-arrow" aria-hidden="true">→</span>
+      <div class="rcre-step s-evidencia">
+        <h4>EVIDÊNCIA</h4>
+        <p>Como provar que o controle existe e funciona?</p>
+      </div>
+    </div>
+
+    <div class="quality">
+      <strong>Pergunta de qualidade:</strong>
+      outra equipe conseguiria verificar esse controle amanhã usando a evidência descrita?
+    </div>
+  </section>
+
+  <!-- =================== LAB 01 =================== -->
+  <section class="lab lab01" id="lab01">
+    <header class="lab-head">
+      <span class="pill p-lab01">LAB 01</span>
+      <h2>Ameaças mapeadas</h2>
+      <p class="lab-goal"><strong>Objetivo:</strong> construir o mapa de ameaças da aplicação LLM, nomeando ativos, superfícies de ataque e impactos, alinhado ao OWASP Top 10 for LLM Apps e ao MITRE ATLAS.</p>
+    </header>
+
+    <div class="lab-meta">
+      <div class="meta-item"><span>Duração</span><strong>2h30</strong></div>
+      <div class="meta-item"><span>Formato</span><strong>Equipes de 3–4</strong></div>
+      <div class="meta-item"><span>Entrega</span><strong>Mapa de ameaças + matriz P×I</strong></div>
+      <div class="meta-item"><span>Base</span><strong>OWASP LLM · ATLAS · NIST AI RMF (Map)</strong></div>
+    </div>
+
+    <h3 class="section-title">Atividades</h3>
+
+    <ol class="activities">
+      <li class="activity">
+        <div class="activity-head"><span class="act-num">1.1</span><h4>Inventário de ativos e fluxo de dados</h4></div>
+        <p>Desenhe o fluxo da aplicação LLM: entradas do usuário, prompt do sistema, dados de contexto (RAG), chamadas a ferramentas/agentes, saídas e integrações. Classifique dados por sensibilidade.</p>
+        <ul class="checklist">
+          <li>Diagrama de fluxo de dados (DFD) com fronteiras de confiança.</li>
+          <li>Lista de ativos: dados, modelo, prompts, embeddings, chaves, plugins.</li>
+          <li>Classificação de sensibilidade (público / interno / confidencial / PII).</li>
+        </ul>
+      </li>
+
+      <li class="activity">
+        <div class="activity-head"><span class="act-num">1.2</span><h4>Enumeração de ameaças (OWASP LLM Top 10)</h4></div>
+        <p>Para cada ponto do fluxo, levante ameaças plausíveis usando a lista OWASP para LLMs como catálogo de partida.</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Código</th><th>Ameaça OWASP (LLM)</th><th>Pergunta-guia</th></tr></thead>
+            <tbody>
+              <tr><td>LLM01</td><td>Prompt Injection</td><td>Uma entrada pode subverter instruções do sistema?</td></tr>
+              <tr><td>LLM02</td><td>Divulgação de Informação Sensível</td><td>A saída pode vazar PII, segredos ou dados internos?</td></tr>
+              <tr><td>LLM03</td><td>Cadeia de Suprimentos</td><td>Modelos, libs ou datasets de terceiros são confiáveis?</td></tr>
+              <tr><td>LLM04</td><td>Envenenamento de Dados e Modelo</td><td>O treino/fine-tuning/RAG pode ser contaminado?</td></tr>
+              <tr><td>LLM05</td><td>Tratamento Inadequado de Saída</td><td>A saída é usada sem sanitização (XSS, SQLi, RCE)?</td></tr>
+              <tr><td>LLM06</td><td>Agência Excessiva</td><td>O agente tem permissões/ferramentas além do necessário?</td></tr>
+              <tr><td>LLM07</td><td>Vazamento de System Prompt</td><td>O prompt do sistema pode ser extraído?</td></tr>
+              <tr><td>LLM08</td><td>Fraquezas de Vetores e Embeddings</td><td>O RAG permite injeção ou inversão de dados?</td></tr>
+              <tr><td>LLM09</td><td>Desinformação</td><td>Alucinações podem causar dano a decisões?</td></tr>
+              <tr><td>LLM10</td><td>Consumo Não Limitado</td><td>Há risco de abuso de custo/DoS por consumo?</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </li>
+
+      <li class="activity">
+        <div class="activity-head"><span class="act-num">1.3</span><h4>Técnicas de ataque (MITRE ATLAS)</h4></div>
+        <p>Associe cada ameaça a táticas/técnicas do MITRE ATLAS (ex.: <em>LLM Prompt Injection</em>, <em>Jailbreak</em>, <em>Model Evasion</em>) para descrever o <strong>como</strong> do ataque.</p>
+      </li>
+
+      <li class="activity">
+        <div class="activity-head"><span class="act-num">1.4</span><h4>Matriz Probabilidade × Impacto</h4></div>
+        <p>Pontue cada risco (1–5 em P e I), calcule o nível e priorize o que segue para o LAB 02.</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>ID</th><th>Ameaça</th><th>Ativo</th><th>P (1-5)</th><th>I (1-5)</th><th>Nível (P×I)</th></tr></thead>
+            <tbody>
+              <tr><td>R-01</td><td>Prompt injection via campo livre</td><td>Prompt do sistema</td><td>4</td><td>5</td><td class="risk-high">20 · Crítico</td></tr>
+              <tr><td>R-02</td><td>Vazamento de PII na resposta</td><td>Base de clientes</td><td>3</td><td>5</td><td class="risk-high">15 · Alto</td></tr>
+              <tr><td>R-03</td><td>Alucinação em recomendação</td><td>Decisão de negócio</td><td>3</td><td>3</td><td class="risk-med">9 · Médio</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </li>
+    </ol>
+
+    <div class="deliverable">
+      <h4>Entregável do LAB 01</h4>
+      <p>Planilha/mapa com no mínimo 8 ameaças priorizadas (DFD + catálogo OWASP + técnicas ATLAS + matriz P×I). As 3 ameaças de maior nível alimentam o LAB 02.</p>
+    </div>
+  </section>
+
+  <!-- =================== LAB 02 =================== -->
+  <section class="lab lab02" id="lab02">
+    <header class="lab-head">
+      <span class="pill p-lab02">LAB 02</span>
+      <h2>Controles + responsáveis + evidências</h2>
+      <p class="lab-goal"><strong>Objetivo:</strong> transformar as ameaças priorizadas em controles com dono (RACI) e evidência verificável, usando NIST SP 800-218A (SSDF para IA generativa) e mitigações OWASP GenAI.</p>
+    </header>
+
+    <div class="lab-meta">
+      <div class="meta-item"><span>Duração</span><strong>3h00</strong></div>
+      <div class="meta-item"><span>Formato</span><strong>Equipes de 3–4</strong></div>
+      <div class="meta-item"><span>Entrega</span><strong>Catálogo de controles + RACI + evidências</strong></div>
+      <div class="meta-item"><span>Base</span><strong>SP 800-218A · OWASP GenAI · AI RMF (Manage)</strong></div>
+    </div>
+
+    <h3 class="section-title">Atividades</h3>
+
+    <ol class="activities">
+      <li class="activity">
+        <div class="activity-head"><span class="act-num">2.1</span><h4>Seleção de controles por ameaça</h4></div>
+        <p>Para cada risco crítico/alto do LAB 01, selecione controles preventivos, detectivos e de resposta. Cada controle deve declarar o que reduz: probabilidade, impacto ou ambos.</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Risco</th><th>Controle</th><th>Tipo</th><th>Reduz</th></tr></thead>
+            <tbody>
+              <tr><td>R-01 Prompt injection</td><td>Guardrails de entrada/saída + separação de instruções</td><td>Preventivo</td><td>Probabilidade</td></tr>
+              <tr><td>R-01 Prompt injection</td><td>Monitoramento de tentativas de jailbreak</td><td>Detectivo</td><td>Impacto</td></tr>
+              <tr><td>R-02 Vazamento de PII</td><td>Redação/mascaramento de PII na saída</td><td>Preventivo</td><td>Impacto</td></tr>
+              <tr><td>R-03 Alucinação</td><td>Grounding por RAG + citação de fonte obrigatória</td><td>Preventivo</td><td>Probabilidade</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </li>
+
+      <li class="activity">
+        <div class="activity-head"><span class="act-num">2.2</span><h4>Matriz de responsabilidade (RACI)</h4></div>
+        <p>Atribua para cada controle quem é <strong>R</strong>esponsável, <strong>A</strong>provador, <strong>C</strong>onsultado e <strong>I</strong>nformado.</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Controle</th><th>R</th><th>A</th><th>C</th><th>I</th></tr></thead>
+            <tbody>
+              <tr><td>Guardrails de prompt</td><td>Eng. ML</td><td>Tech Lead</td><td>AppSec</td><td>Produto</td></tr>
+              <tr><td>Mascaramento de PII</td><td>Backend</td><td>DPO</td><td>Jurídico</td><td>Negócio</td></tr>
+              <tr><td>Grounding/RAG</td><td>Eng. Dados</td><td>Arquiteto</td><td>Domínio</td><td>Produto</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </li>
+
+      <li class="activity">
+        <div class="activity-head"><span class="act-num">2.3</span><h4>Definição da evidência verificável</h4></div>
+        <p>Para cada controle, descreva a evidência que prova sua existência e eficácia. Aplique o teste: <em>outra equipe conseguiria verificar amanhã?</em></p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Controle</th><th>Evidência</th><th>Onde / Como coletar</th><th>Cadência</th></tr></thead>
+            <tbody>
+              <tr><td>Guardrails de prompt</td><td>Logs de bloqueio + suíte de testes de injeção</td><td>Pipeline CI + SIEM</td><td>Por release / contínuo</td></tr>
+              <tr><td>Mascaramento de PII</td><td>Relatório de scan de PII em amostras de saída</td><td>Job agendado + DLP</td><td>Diária</td></tr>
+              <tr><td>Grounding/RAG</td><td>% de respostas com citação válida</td><td>Métrica de avaliação</td><td>Por release</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </li>
+
+      <li class="activity">
+        <div class="activity-head"><span class="act-num">2.4</span><h4>Mapeamento a frameworks</h4></div>
+        <p>Vincule cada controle a práticas de SP 800-218A (ex.: PW — <em>Produce Well-Secured Software</em>; RV — <em>Respond to Vulnerabilities</em>) e às funções do NIST AI RMF (<em>Govern, Map, Measure, Manage</em>), garantindo rastreabilidade.</p>
+      </li>
+    </ol>
+
+    <div class="deliverable">
+      <h4>Entregável do LAB 02</h4>
+      <p>Catálogo de controles com RACI e evidência verificável para cada risco priorizado, mapeado a SP 800-218A e NIST AI RMF. Base de teste para o LAB 03.</p>
+    </div>
+  </section>
+
+  <!-- =================== LAB 03 =================== -->
+  <section class="lab lab03" id="lab03">
+    <header class="lab-head">
+      <span class="pill p-lab03">LAB 03</span>
+      <h2>Testar e decidir</h2>
+      <p class="lab-goal"><strong>Objetivo:</strong> validar os controles sob condição de ataque (red team de LLM), medir eficácia e tomar a decisão de risco: aceitar, tratar ou escalar.</p>
+    </header>
+
+    <div class="lab-meta">
+      <div class="meta-item"><span>Duração</span><strong>3h00</strong></div>
+      <div class="meta-item"><span>Formato</span><strong>Red vs Blue</strong></div>
+      <div class="meta-item"><span>Entrega</span><strong>Relatório de teste + decisão de risco</strong></div>
+      <div class="meta-item"><span>Base</span><strong>AI RMF (Measure) · ATLAS · OWASP GenAI Red Teaming</strong></div>
+    </div>
+
+    <h3 class="section-title">Atividades</h3>
+
+    <ol class="activities">
+      <li class="activity">
+        <div class="activity-head"><span class="act-num">3.1</span><h4>Plano de teste adversarial</h4></div>
+        <p>Para cada controle do LAB 02, derive casos de teste de ataque (payloads de prompt injection, exfiltração de PII, jailbreak, extração de system prompt) com critério de aprovação claro.</p>
+        <ul class="checklist">
+          <li>Objetivo do teste e técnica ATLAS associada.</li>
+          <li>Payloads e passos reprodutíveis.</li>
+          <li>Critério de passa/falha mensurável.</li>
+        </ul>
+      </li>
+
+      <li class="activity">
+        <div class="activity-head"><span class="act-num">3.2</span><h4>Execução Red vs Blue</h4></div>
+        <p>Red team executa os ataques; Blue team observa alertas e evidências geradas pelos controles. Registre taxa de bloqueio, falsos negativos e tempo de detecção.</p>
+      </li>
+
+      <li class="activity">
+        <div class="activity-head"><span class="act-num">3.3</span><h4>Medição de eficácia</h4></div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Controle</th><th>Ataques</th><th>Bloqueados</th><th>Eficácia</th><th>Resultado</th></tr></thead>
+            <tbody>
+              <tr><td>Guardrails de prompt</td><td>20</td><td>18</td><td>90%</td><td class="risk-med">Tratar</td></tr>
+              <tr><td>Mascaramento de PII</td><td>15</td><td>15</td><td>100%</td><td class="risk-low">Aceitar</td></tr>
+              <tr><td>Grounding/RAG</td><td>12</td><td>7</td><td>58%</td><td class="risk-high">Escalar</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </li>
+
+      <li class="activity">
+        <div class="activity-head"><span class="act-num">3.4</span><h4>Decisão de risco</h4></div>
+        <p>Com base na eficácia medida, decida por risco: <strong>Aceitar</strong> (dentro do apetite), <strong>Tratar</strong> (reforçar controle) ou <strong>Escalar</strong> (acima do apetite — governança decide). Registre o dono e o prazo.</p>
+      </li>
+    </ol>
+
+    <div class="deliverable">
+      <h4>Entregável do LAB 03</h4>
+      <p>Relatório de teste adversarial com eficácia por controle e decisão de risco documentada (aceitar/tratar/escalar), com responsável e prazo — fechando o ciclo do risco à evidência.</p>
+    </div>
+  </section>
+
+  <!-- =================== REFERENCIAIS =================== -->
+  <section class="block" id="referenciais">
+    <header class="block-head">
+      <h2>Referenciais de apoio</h2>
+      <p>Frameworks que sustentam cada estação do método.</p>
+    </header>
+    <div class="cards">
+      <article class="ref-card">
+        <h4>NIST AI RMF</h4>
+        <p>Framework de gestão de risco em IA (Govern, Map, Measure, Manage). Base da priorização e da decisão de risco.</p>
+      </article>
+      <article class="ref-card">
+        <h4>NIST AI 600-1</h4>
+        <p>Perfil de IA generativa do AI RMF, com riscos e ações específicas para GenAI.</p>
+      </article>
+      <article class="ref-card">
+        <h4>NIST SP 800-218A</h4>
+        <p>SSDF estendido para modelos de IA generativa: práticas seguras no ciclo de desenvolvimento.</p>
+      </article>
+      <article class="ref-card">
+        <h4>OWASP GenAI / Top 10 LLM</h4>
+        <p>Catálogo de riscos e mitigações para aplicações com LLM. Base do LAB 01 e dos controles.</p>
+      </article>
+      <article class="ref-card">
+        <h4>MITRE ATLAS</h4>
+        <p>Táticas e técnicas de ataque adversarial a sistemas de IA/ML. Base do teste adversarial.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- =================== INSUMOS / LINKS =================== -->
+  <section class="block" id="insumos">
+    <header class="block-head">
+      <h2>Insumos &amp; links</h2>
+      <p>Materiais e referências para conduzir os laboratórios.</p>
+    </header>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Insumo</th><th>Usado em</th><th>Referência</th></tr></thead>
+        <tbody>
+          <tr><td>OWASP Top 10 for LLM Applications</td><td>LAB 01 / 02</td><td><a href="https://genai.owasp.org/llm-top-10/" target="_blank" rel="noopener">genai.owasp.org/llm-top-10</a></td></tr>
+          <tr><td>OWASP GenAI Security Project</td><td>LAB 02 / 03</td><td><a href="https://genai.owasp.org/" target="_blank" rel="noopener">genai.owasp.org</a></td></tr>
+          <tr><td>MITRE ATLAS Matrix</td><td>LAB 01 / 03</td><td><a href="https://atlas.mitre.org/" target="_blank" rel="noopener">atlas.mitre.org</a></td></tr>
+          <tr><td>NIST AI Risk Management Framework</td><td>Todos</td><td><a href="https://www.nist.gov/itl/ai-risk-management-framework" target="_blank" rel="noopener">nist.gov/.../ai-risk-management-framework</a></td></tr>
+          <tr><td>NIST AI 600-1 (Perfil GenAI)</td><td>Todos</td><td><a href="https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf" target="_blank" rel="noopener">NIST.AI.600-1.pdf</a></td></tr>
+          <tr><td>NIST SP 800-218A (SSDF para GenAI)</td><td>LAB 02</td><td><a href="https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-218A.pdf" target="_blank" rel="noopener">NIST.SP.800-218A.pdf</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="templates">
+      <h3 class="section-title">Templates de entrega</h3>
+      <div class="cards">
+        <article class="tpl-card c-lab01">
+          <span class="pill p-lab01">LAB 01</span>
+          <h4>Mapa de ameaças</h4>
+          <p>DFD · catálogo OWASP · técnicas ATLAS · matriz P×I.</p>
+        </article>
+        <article class="tpl-card c-lab02">
+          <span class="pill p-lab02">LAB 02</span>
+          <h4>Catálogo de controles</h4>
+          <p>Controle · tipo · RACI · evidência · mapeamento a frameworks.</p>
+        </article>
+        <article class="tpl-card c-lab03">
+          <span class="pill p-lab03">LAB 03</span>
+          <h4>Relatório de teste</h4>
+          <p>Casos adversariais · eficácia · decisão de risco · responsável/prazo.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-foot">
+    <p><strong>AURORA IA</strong> — Laboratório Security by Design para LLMs · CISSA · CESAR</p>
+    <p class="muted">Referenciais: NIST AI RMF / AI 600-1 / SP 800-218A + mitigações OWASP GenAI + MITRE ATLAS.</p>
+  </footer>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<script src="app.js" defer></script>
+</body>
+</html>
